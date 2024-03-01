@@ -1,4 +1,4 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/first-element-to-occur-k-times5150/1?page=2&category=Hash,two-pointer-algorithm&sortBy=submissions">First element to occur k times</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array of <strong>n</strong> integers. Find the first element that occurs <strong>atleast k</strong> number of times.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/first-element-to-occur-k-times5150/1">First element to occur k times</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array of <strong>n</strong> integers. Find the first element that occurs <strong>atleast k</strong> number of times.</span></p>
 <p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input :</strong>
 n = 7, k = 2
