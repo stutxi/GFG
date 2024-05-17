@@ -8,20 +8,19 @@ public:
     int findPeakElement(vector<int>& a) 
     {
         // Code here.
-        int n = a.size();
-        int start = 0;
-        int end = n - 1;
+        int start = 0, end = a.size() - 1;
         while (start < end) {
             int mid = start + (end - start) / 2;
-            if (a[mid] > a[mid + 1]) {
-                end = mid;
-            } else {
+            if (a[mid] < a[mid + 1]) {
                 start = mid + 1;
+            } else {
+                end = mid;
             }
         }
         return a[start];
     }
 };
+
 
 //{ Driver Code Starts.
 int main(){
