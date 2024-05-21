@@ -14,22 +14,23 @@ class Solution{
             int i = 0, j = k;
             while (i <= k) {
                 ans.push_back(A[i][j]);
-                i++;
-                j++;
+                ++i;
+                --j;
             }
         }
         for (int k = 1; k < N; ++k) {
             int i = k, j = N - 1;
             while (i < N) {
                 ans.push_back(A[i][j]);
-                i++;
-                j++;
+                ++i;
+                --j;
             }
         }
 
         return ans;
     }
 };
+
 
 //{ Driver Code Starts.
 
