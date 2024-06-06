@@ -45,12 +45,11 @@ class Solution
     {
        // Your Code here
        vector<int> ans;
-       rightView(root, ans, 0);
+       rightViewHelper(root, ans, 0);
        return ans;
     }
     
-    private:
-    void rightView(Node *root, vector<int>& list, int level) {
+    void rightViewHelper(Node *root, vector<int>& list, int level) {
         if (root == nullptr) return;
         
         if (level == list.size()) {
@@ -58,14 +57,15 @@ class Solution
         }
         
         if (root->right != nullptr) {
-            rightView(root->right, list, level + 1);
+            rightViewHelper(root->right, list, level + 1);
         }
         
         if (root->left != nullptr) {
-            rightView(root->left, list, level + 1);
+            rightViewHelper(root->left, list, level + 1);
         }
     }
 };
+
 
 
 
