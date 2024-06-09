@@ -5,12 +5,12 @@ using namespace std;
 
 
 // } Driver Code Ends
-//User function template for C++
-class Solution{
-public:	
+// User function template for C++
+class Solution {
+  public:
 
-	void matchPairs(char nuts[], char bolts[], int n) {
-	    // code here
+    void matchPairs(int n, char nuts[], char bolts[]) {
+        // code here
         sort(nuts, nuts + n);
         sort(bolts, bolts + n);
     }
@@ -32,7 +32,7 @@ int main() {
             cin >> bolts[i];
         }
         Solution ob;
-        ob.matchPairs(nuts, bolts, n);
+        ob.matchPairs(n, nuts, bolts);
         for (int i = 0; i < n; i++) {
             cout << nuts[i] << " ";
         }
