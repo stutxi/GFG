@@ -93,22 +93,27 @@ class Solution {
   public:
     bool hasPathSum(Node *root, int target) {
         // Your code here
-        //base case
-        if (root == nullptr) {
-            return false;
-        }
+        int sum = 0;
+        return solve(root, target, sum);
+    }
+    
+  private: 
+    bool solve(Node* root, int target, int sum) {
+        // base case
+        if (root == nullptr) return false;
+        
+        sum += root->data;
         
         if (root->left == nullptr && root->right == nullptr) {
-            return root->data == target;
+            // leaf node
+            return sum == target;
         }
         
-        target -= root->data;
-        
-        return hasPathSum(root->left, target) || hasPathSum(root->right, target);
+        bool leftAns = solve(root->left, target, sum);
+        bool rightAns = solve(root->right, target, sum);
+        return leftAns || rightAns;
     }
 };
-
-
 
 //{ Driver Code Starts.
 
