@@ -21,22 +21,19 @@ class Solution {
   public:
     // Function to check whether a Binary Tree is BST or not.
     bool isBST(Node* root) {
-        int min = INT_MIN;
-        int max = INT_MAX;
-        return helper(root, min, max);
+        // Your code here
+        int lowerBound = INT_MIN;
+        int upperBound = INT_MAX;
+        return solve(root, lowerBound, upperBound);
     }
-
-    bool helper(Node* root, int min, int max) {
-        if (!root) {
-            return true;
-        }
+    
+  private:
+    bool solve(Node* root, int lowerBound, int upperBound) {
+        if (!root) return true;
         
-        if (root->data <= min || root->data >= max) {
-            return false;
-        }
+        if (root->data <= lowerBound || root->data >= upperBound) return false;
         
-        return helper(root->left, min, root->data) && 
-               helper(root->right, root->data, max);
+        return solve(root->left, lowerBound, root->data) && solve(root->right, root->data, upperBound);
     }
 };
 
