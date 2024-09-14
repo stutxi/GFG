@@ -11,32 +11,31 @@ class Solution {
         // Your code here
         int index = 0;
         int n = wt.size();
-        int ans = solve(W, wt, val, index, n);
-        return ans;
+        vector<vector<int>> dp(W + 1, vector<int>(n + 1, -1));
+        return memo(W, wt, val, index, n, dp);
     }
     
-    // recursion
-    int solve(int W, vector<int>& wt, vector<int>& val, int index, int n) {
+    int memo(int W, vector<int>& wt, vector<int>& val, int index, int n, vector<vector<int>>& dp) {
         // base case
-        if (index == n - 1) {
-            if (wt[index] <= W) {
-                return val[index];
-            } else {
-                return 0;
-            }
+        if (index >= n) {
+            return 0;
+        }
+        
+        if (dp[W][index] != -1) {
+            return dp[W][index];
         }
         
         // inclusion, exclusion
         int include = 0;
         if (wt[index] <= W) {
-            include = val[index] + solve(W - wt[index], wt, val, index + 1, n);
+            include = val[index] + memo(W - wt[index], wt, val, index + 1, n, dp);
         }
         
-        int exclude = 0 + solve(W, wt, val, index + 1, n);
+        int exclude = 0 + memo(W, wt, val, index + 1, n, dp);
         
-        int ans = max(include, exclude);
+        dp[W][index] = max(include, exclude);
         
-        return ans;
+        return dp[W][index];
     }
 };
 
