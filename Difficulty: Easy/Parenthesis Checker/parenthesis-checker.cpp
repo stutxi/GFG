@@ -18,8 +18,7 @@ class Solution
                 st.push(ch);
             } else {
                 if (!st.empty()) {
-                    //closing bracket
-                    if (ch == ')' && st.top() == '(' ) {
+                    if (ch == ')' && st.top() == '(') {
                         st.pop();
                     } else if (ch == '}' && st.top() == '{') {
                         st.pop();
@@ -27,14 +26,15 @@ class Solution
                         st.pop();
                     } else {
                         return false;
-                    }   
+                    }
                 } else {
                     return false;
                 }
-            }
+            } 
         }
         return st.empty();
     }
+
 };
 
 //{ Driver Code Starts.
